@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 2rem;
+    }
+    .chart-container {
+      width: 80%;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">BMI Dashboard</h2>
+  <div class="chart-container">
+    <canvas id="bmiChart"></canvas>
+  </div>
+
+  <script>
+    async function loadData() {
+      let response = await fetch("http://127.0.0.1:7000/bmi/all");
+      let data = await response.json();
+
+      let labels = data.map(d => d.name);
+      let bmiValues = data.map(d => d.bmi);
+
+      new Chart(document.getElementById("bmiChart"), {
+        type: "bar",
+        data: {
+          labels: labels,
+          datasets: [{
+            label: "BMI Values",
+            data: bmiValues,
+            backgroundColor: "rgba(54, 162, 235, 0.6)"
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    }
+    loadData();
+  </script>
+</body>
+</html>

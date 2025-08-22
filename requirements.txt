@@ -1,0 +1,6 @@
+flask
+flask-restful
+flask-cors
+google-generativeai
+python-dotenv
+pymysql
