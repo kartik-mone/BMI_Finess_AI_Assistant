@@ -146,7 +146,8 @@
   <script>
     async function loadBMIReports() {
       try {
-        let response = await fetch("http://127.0.0.1:7000/bmi/all"); // Flask API
+        let response = await fetch("http://127.0.0.1:5000/bmi/all");// Flask API
+
         let data = await response.json();
 
         let container = document.getElementById("bmiContainer");
