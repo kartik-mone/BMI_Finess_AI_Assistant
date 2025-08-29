@@ -121,7 +121,7 @@ Response:
 ├── Web_Interface.html     # Main BMI calculator (form + results)
 ├── All_BMIS.html          # Card-based list of all BMI reports
 ├── Analysis_BMI.html      # BMI dashboard with Chart.js
-└── .env                   # API keys + DB credentials (ignored in Git)
+└── .env                   # API keys + DB credentials 
 ```
 
 ---
